@@ -1,13 +1,14 @@
-// Components/FilmItem.js
-
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 
 class PlatItem extends React.Component {
   render() {
-    const plat = this.props.plat
+    const{ plat, displayDetailForPlat } = this.props
     return (
-      <View style={styles.main_container}>
+      <TouchableOpacity
+        onPress={() => displayDetailForPlat(plat.id)}
+        style={styles.main_container}
+        underlayColor='#37401a'>
         <Image
           style={styles.image}
           source={{uri: "image"}}
@@ -15,30 +16,30 @@ class PlatItem extends React.Component {
         <View style={styles.content_container}>
           <View style={styles.header_container}>
             <Text style={styles.title_text}>{plat.title}</Text>
-            <Text style={styles.vote_text}>{plat.titulaire}</Text>
+            <Text style={styles.localisation}>{plat.localisation}</Text>
           </View>
           <View style={styles.description_container}>
             <Text style={styles.description_text} numberOfLines={6}>{plat.description}</Text>
-            {/* La propriété numberOfLines permet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
+            
           </View>
           <View style={styles.date_container}>
-            <Text style={styles.date_text}>{plat.title}</Text>
+            <Text style={styles.price}>{plat.price}</Text>
           </View>
         </View>
-      </View>
+        <View style={styles.line}></View>
+      </TouchableOpacity>
     )
   }
 }
 
 const styles = StyleSheet.create({
   main_container: {
-    height: 190,
-    flexDirection: 'row'
+    height: 500,
+    flexDirection: 'column'
   },
   image: {
-    width: 120,
-    height: 180,
-    margin: 5,
+    width: "100%",
+    height: 250,
     backgroundColor: 'gray'
   },
   content_container: {
@@ -46,23 +47,25 @@ const styles = StyleSheet.create({
     margin: 5
   },
   header_container: {
-    flex: 3,
-    flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'column'
   },
   title_text: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 26,
     flex: 1,
     flexWrap: 'wrap',
-    paddingRight: 5
+    paddingRight: 5,
+    color: "#37401a"
   },
-  vote_text: {
+  localisation: {
     fontWeight: 'bold',
-    fontSize: 26,
-    color: '#666666'
+    fontSize: 20,
+    color: '#666666',
+    flex: 1
   },
   description_container: {
-    flex: 7
+    flex: 1
   },
   description_text: {
     fontStyle: 'italic',
@@ -71,9 +74,13 @@ const styles = StyleSheet.create({
   date_container: {
     flex: 1
   },
-  date_text: {
-    textAlign: 'right',
+  price: {
+    textAlign: 'center',
     fontSize: 14
+  },
+  line: {
+    height: 2,
+    backgroundColor: '#707070'
   }
 })
 

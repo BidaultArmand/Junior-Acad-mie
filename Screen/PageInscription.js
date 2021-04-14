@@ -42,7 +42,7 @@ const PageInscription = ({navigation}) => {
       
       <TouchableOpacity
                 style={styles.RegisterScreenButton}
-                onPress={() => navigation.push('PageAccueil')}
+                onPress={() => navigation.push('Tabnavigator')}
                 underlayColor='#fff'>
             <Text style={styles.loginText}>S'INSCRIRE</Text>
         </TouchableOpacity>
@@ -131,9 +131,7 @@ const PageInscription = ({navigation}) => {
           alignSelf: 'flex-end',
           alignItems: "center",
           opacity: 0.4,
-          
           position: 'absolute'
-          
         }
       });
 
