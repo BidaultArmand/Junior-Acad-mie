@@ -18,7 +18,6 @@ function PageAccueil() {
                 <TextInput style={styles.textinput} placeholder="Localisation"/>
                 <Button title="Rechercher" onPress={() => {}}/>
               </View>
-          
           </View>
             <FlatList style={styles.flatlist}
                 data={plats}

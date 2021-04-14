@@ -1,4 +1,4 @@
-
+import { Image } from 'react-native';
 import React from 'react';
 import PageAccueil from "./Screen/PageAccueil";
 import PageInscription from "./Screen/PageInscription";
@@ -29,10 +29,18 @@ function App() {
 function TabNavigator() {
   return(
     <AppTab.Navigator>
-        <AppTab.Screen name="Accueil" component={PageAccueil} options={{ tabBarBadge: 3 }} />
-        <AppTab.Screen name="Recherche" component={Search} />
-        <AppTab.Screen name="Cook" component={Cook} />
-        <AppTab.Screen name="Profil" component={Profil} />
+        <AppTab.Screen name="Accueil" component={PageAccueil} 
+          options={{tabBarIcon: () => <Image source={require("./assets/Accueil.png")} style={{ height: 30, }}/>}} 
+        />
+        <AppTab.Screen name="Recherche" component={Search}
+         options={{tabBarIcon: () => <Image source={require("./assets/Search.png")} style={{ height: 30, }}/>}} 
+         />
+        <AppTab.Screen name="Cook" component={Cook} 
+        options={{tabBarIcon: () => <Image source={require("./assets/Cook.png")} style={{ height: 30, }}/>}} 
+        />
+        <AppTab.Screen name="Profil" component={Profil} 
+        options={{tabBarIcon: () => <Image source={require("./assets/Profil.png")} style={{ height: 30, }}/>}} 
+        />
       </AppTab.Navigator>
   )
 }

@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, ScrollView, TextInput, TouchableOpacity 
 
 
 function Cook() {
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -14,7 +15,6 @@ function Cook() {
             </View> 
                 <View style={styles.line_1}/> 
             <View style={styles.container_2}>
-                
                 <ScrollView style={styles.scrollview}>
                     <View style={styles.container_3}>
                         <View>
@@ -39,15 +39,14 @@ function Cook() {
                             <Text style={styles.text_addPhoto}>+ Photo</Text>
                         </View>
                     </View>
-                        <View style={styles.container_4}>
+                </ScrollView>
+                <View style={styles.container_4}>
                             <TouchableOpacity
                                 style={styles.RegisterScreenButton}
-                                
                                 underlayColor='#fff'>
                                 <Text style={styles.loginText}>POSTER</Text>
                             </TouchableOpacity>
                         </View>
-                </ScrollView>
             </View> 
         </View>
     
@@ -63,14 +62,19 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     container_2: {
-        flex: 1,
+        flex: 2,
         width: '90%',
-        
     },
     container_3: {
         flexDirection: 'row',
         width: '100%',
         marginTop: '14%',
+    },
+    scrollview: {
+        flex: 1, 
+        height: 20,
+        backgroundColor: 'magenta'
+        
     },
     header: {
         flexDirection: 'row',
@@ -130,8 +134,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#f5cc02',
         shadowColor: "#000",
         shadowOffset: {
-          width: 0,
-          height: 7,
+        width: 0,
+        height: 7,
         },
         shadowOpacity: 0.41,
         shadowRadius: 9.11,
@@ -139,10 +143,8 @@ const styles = StyleSheet.create({
         height: 45,
         width: 250,
         borderRadius: 20
-        
-        
-      },
-      loginText:{
+    },
+    loginText:{
           color: 'black',
           fontWeight: "bold",
           textAlign:'center',
@@ -150,7 +152,10 @@ const styles = StyleSheet.create({
           paddingRight : 10
       },
       container_4: {
-          alignItems: 'center'
+          alignItems: 'center',
+          flex: 1,
+          backgroundColor: 'pink',
+          marginTop: '25%'
       }
 })
 
