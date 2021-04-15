@@ -1,31 +1,38 @@
+import React from "react";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  Button,
+  Text,
+  FlatList,
+  Image,
+  TouchableHighlight,
+} from "react-native";
+import plats from "../Helpers/PlatsData";
+import PlatItem from "../Components/PlatItem";
 
-
-import React from "react"
-import { StyleSheet, View, TextInput, Button, Text, FlatList, Image, TouchableHighlight } from "react-native"
-import plats from "../Helpers/PlatsData"
-import PlatItem from "../Components/PlatItem"
-
-
-
-
-function PageAccueil() {
-    return (
-        <View styles={styles.container} >
-        
-          <View style={styles.Header} >
-            <Image style={styles.image} source={require("../assets/Logo.png")}/>
-              <View style={styles.bloc}>
-                <TextInput style={styles.textinput} placeholder="Localisation"/>
-                <Button title="Rechercher" onPress={() => {}}/>
-              </View>
-          </View>
-            <FlatList style={styles.flatlist}
-                data={plats}
-                renderItem={({item}) => <PlatItem plat={item}/>}
-              />
-          </View>
-    )
-  }
+function PageAccueil(props) {
+  console.log(props);
+  return (
+    <View styles={styles.container}>
+      <View style={styles.Header}>
+        <Image style={styles.image} source={require("../assets/Logo.png")} />
+        <View style={styles.bloc}>
+          <TextInput style={styles.textinput} placeholder="Localisation" />
+          <Button title="Rechercher" onPress={() => {}} />
+        </View>
+      </View>
+      <FlatList
+        style={styles.flatlist}
+        data={plats}
+        renderItem={({ item }) => (
+          <PlatItem plat={item} navigation={props.navigation} />
+        )}
+      />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   main_container: {
@@ -33,27 +40,27 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    aspectRatio: 1, 
-    resizeMode: 'contain',
-  },  
+    aspectRatio: 1,
+    resizeMode: "contain",
+  },
   textinput: {
     borderWidth: 1,
     borderRadius: 20,
     height: 40,
-    borderColor: '#707070',
+    borderColor: "#707070",
     borderWidth: 2,
   },
   Header: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: "10%",
   },
   bloc: {
-    justifyContent: 'center',
+    justifyContent: "center",
     width: "70%",
   },
   flatlist: {
-    marginBottom: 150
-  }
-})
+    marginBottom: 150,
+  },
+});
 
-export default PageAccueil
+export default PageAccueil;
