@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     width: "70%",
   },
   flatlist: {
-    marginBottom: 150,
+    marginBottom: 200,
   },
 });
 

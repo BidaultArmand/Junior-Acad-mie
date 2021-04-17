@@ -9,38 +9,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Profil from "./Screen/Profil";
 import Search from "./Screen/Search";
 import Cook from "./Screen/Cook";
-import PlatItem from "./Components/PlatItem";
 import PlatDetail from "./Components/PlatDetail";
 import AppContext from "./Components/AppContext";
-
 const AppStack = createStackNavigator();
+const AppStackNewNavigator = createStackNavigator();
 const AppTab = createBottomTabNavigator();
-const AppStackOrder = createStackNavigator();
-function App() {
-  //GlobalState
-  const [isLoggedIn, SetIsLoggedIn] = useState(false);
-  //Variable Accessible
-  const Parameters = {
-    UserLogged: isLoggedIn,
-    SetIsLoggedIn,
-  };
-  return (
-    <AppContext.Provider value={Parameters}>
-      <NavigationContainer>
-        <AppStack.Navigator screenOptions={{ headerShown: false }}>
-          {!isLoggedIn ? (
-            <AppStack.Screen
-              name="PageInscription"
-              component={PageInscription}
-            />
-          ) : (
-            <AppStack.screen name="Navigator2" component={Navigator2} />
-          )}
-        </AppStack.Navigator>
-      </NavigationContainer>
-    </AppContext.Provider>
-  );
-}
 function TabNavigator() {
   return (
     <AppTab.Navigator>
@@ -92,22 +65,43 @@ function TabNavigator() {
     </AppTab.Navigator>
   );
 }
-function OrderMenue() {
+function newNavigator() {
   return (
-    <AppStackOrder.Navigator>
-      <AppStackOrder.screen name="PlatDetail" component={PlatDetail} />
-    </AppStackOrder.Navigator>
+    <AppStackNewNavigator.Navigator screenOptions={{ headerShown: false }}>
+      <AppStackNewNavigator.Screen
+        name="Tabnavigator"
+        component={TabNavigator}
+      />
+      <AppStackNewNavigator.Screen name="PlatDetail" component={PlatDetail} />
+      <AppStackNewNavigator.Screen name="OrderMenue" component={PlatDetail} />
+    </AppStackNewNavigator.Navigator>
   );
 }
-function Navigator2() {
+function App() {
+  //GlobalState
+  const [isLoggedIn, SetIsLoggedIn] = useState(false);
+  //Variable Accessible
+  const Parameters = {
+    UserLogged: isLoggedIn,
+    SetIsLoggedIn,
+  };
   return (
-    <AppStackNavigator2.Navigator>
-      <AppStackNavigator2.Screen name="Tabnavigator" component={TabNavigator} />
-      <AppStackNavigator2.screen name="PlatDetail" component={PlatDetail} />
-    </AppStackNavigator2.Navigator>
+    <AppContext.Provider value={Parameters}>
+      <NavigationContainer>
+        <AppStack.Navigator screenOptions={{ headerShown: false }}>
+          {!isLoggedIn ? (
+            <AppStack.Screen
+              name="PageInscription"
+              component={PageInscription}
+            />
+          ) : (
+            <AppStack.Screen name="newNavigator" component={newNavigator} />
+          )}
+        </AppStack.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
   );
 }
-
 const styles = StyleSheet.create({
   image: {
     height: "100%",

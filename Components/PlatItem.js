@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
 function PlatItem(props) {
   console.log(props);
-  const { plat, displayDetailForPlat } = props;
+  const { plat } = props;
 
   return (
     <TouchableOpacity
@@ -17,11 +17,7 @@ function PlatItem(props) {
           <Text style={styles.title_text}>{plat.title}</Text>
           <Text style={styles.localisation}>{plat.localisation}</Text>
         </View>
-        <View style={styles.description_container}>
-          <Text style={styles.description_text} numberOfLines={6}>
-            {plat.description}
-          </Text>
-        </View>
+        <View style={styles.description_container}></View>
         <View style={styles.date_container}>
           <Text style={styles.price}>{plat.price}</Text>
         </View>
@@ -33,7 +29,7 @@ function PlatItem(props) {
 
 const styles = StyleSheet.create({
   main_container: {
-    height: 500,
+    height: 360,
     flexDirection: "column",
   },
   image: {
@@ -63,18 +59,11 @@ const styles = StyleSheet.create({
     color: "#666666",
     flex: 1,
   },
-  description_container: {
-    flex: 1,
-  },
   description_text: {
     fontStyle: "italic",
     color: "#666666",
   },
-  date_container: {
-    flex: 1,
-  },
   price: {
-    textAlign: "center",
     fontSize: 14,
   },
   line: {

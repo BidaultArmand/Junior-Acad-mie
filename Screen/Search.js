@@ -20,9 +20,9 @@ const Search = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <TextInput
-          style={{ fontSize: 20 }}
+          style={styles.TextInput}
           keyboardType="default"
-          placeholder="Recherche"
+          placeholder="Recherche..."
           onChangeText={(text) => console.log(text)}
         />
       </View>
@@ -42,12 +42,16 @@ const styles = StyleSheet.create({
   header: {
     height: 50,
     justifyContent: "space-between",
-    width: "80%",
+    width: "100%",
     flexDirection: "row",
     marginTop: 80,
   },
   TextInput: {
     fontWeight: "bold",
+    fontSize: 35,
+    width: "80%",
+    marginLeft: "5%",
+    color: "#37401a",
   },
   image: {
     width: 400,
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
   },
   line_1: {
     backgroundColor: "#707070",
-    width: "80%",
+    width: "90%",
     height: 4,
     borderRadius: 30,
   },
