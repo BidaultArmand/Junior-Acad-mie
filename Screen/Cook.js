@@ -43,6 +43,11 @@ function Cook() {
                 keyboardType="default"
                 placeholder="Localisation..."
               />
+              <TextInput
+                style={styles.text_input}
+                keyboardType="default"
+                placeholder=""
+              />
             </View>
             <View style={styles.image_input}>
               <Text style={styles.text_addPhoto}>+ Photo</Text>
@@ -118,7 +123,7 @@ const styles = StyleSheet.create({
     height: 110,
     width: 110,
     backgroundColor: "#707070",
-    borderColor: "#F5CD05",
+    borderColor: "#37401a",
     borderWidth: 2,
     borderRadius: 10,
     marginLeft: "30%",
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text_addPhoto: {
-    color: "#F5CD05",
+    color: "#37401a",
     fontWeight: "bold",
   },
   RegisterScreenButton: {
