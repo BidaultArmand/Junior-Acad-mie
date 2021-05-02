@@ -37,12 +37,18 @@ function Profil() {
         <Text style={styles.text_2}>Paris</Text>
         <Text style={styles.text_3}>Description du profil, ...</Text>
         <View style={styles.line_2} />
-        <Text style={styles.text}>Message ></Text>
+        <TouchableOpacity>
+          <Text style={styles.text}>Message ></Text>
+        </TouchableOpacity>
         <View style={styles.line_2} />
         <Text style={styles.text_stars}>4,8 étoiles</Text>
-        <Text style={styles.text_commentaire}>Commentaires ></Text>
+        <TouchableOpacity>
+          <Text style={styles.text_commentaire}>Commentaires ></Text>
+        </TouchableOpacity>
         <View style={styles.line_2} />
-        <Text style={styles.text_historique}>Historique des plats ></Text>
+        <TouchableOpacity>
+          <Text style={styles.text_historique}>Historique des plats ></Text>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.RegisterScreenButton}
           onPress={() => Context.SetIsLoggedIn(false)}
@@ -170,7 +176,10 @@ const styles = StyleSheet.create({
   RegisterScreenButton: {
     marginTop: 30,
     paddingTop: 10,
+    marginLeft: "10%",
+    marginRight: "50%",
     paddingBottom: 10,
+    alignItems: "center",
     backgroundColor: "#f5cc02",
     shadowColor: "#000",
     shadowOffset: {

@@ -1,17 +1,21 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
+const IMAGES = {
+  Burger: require("../assets/Burger.jpg"),
+  Salade: require("../assets/Salade.jpg"),
+};
 function PlatItem(props) {
   console.log(props);
   const { plat } = props;
-
+  let linkImage = IMAGES[plat.title];
   return (
     <TouchableOpacity
-      onPress={() => props.navigation.navigate("OrderMenue")}
+      onPress={() => props.navigation.navigate("OrderMenue", { plat })}
       style={styles.main_container}
       underlayColor="#37401a"
     >
-      <Image style={styles.image} source={{ uri: "image" }} />
+      <Image style={styles.image} source={linkImage} />
       <View style={styles.content_container}>
         <View style={styles.header_container}>
           <Text style={styles.title_text}>{plat.title}</Text>

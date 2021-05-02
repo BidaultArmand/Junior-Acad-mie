@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     marginBottom: 200,
+    height: "100%",
   },
 });
 

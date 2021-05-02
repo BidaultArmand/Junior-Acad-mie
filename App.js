@@ -2,7 +2,6 @@ import { Image, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import PageAccueil from "./Screen/PageAccueil";
 import PageInscription from "./Screen/PageInscription";
-import NavigationBar from "./Screen/Tabnavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,12 +10,37 @@ import Search from "./Screen/Search";
 import Cook from "./Screen/Cook";
 import PlatDetail from "./Components/PlatDetail";
 import AppContext from "./Components/AppContext";
+import Finalize from "./Screen/Finalize";
 const AppStack = createStackNavigator();
 const AppStackNewNavigator = createStackNavigator();
 const AppTab = createBottomTabNavigator();
 function TabNavigator() {
   return (
-    <AppTab.Navigator>
+    <AppTab.Navigator
+      tabBarOptions={{
+        activeTintColor: "white",
+        inactiveTintColor: "gray",
+        style: {
+          height: "10%",
+          paddingTop: 10,
+        },
+      }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Accueil") {
+            iconName = focused
+              ? "ios-information-circle"
+              : "ios-information-circle-outline";
+          } else if (route.name === "Profil") {
+            iconName = focused ? "ios-list-box" : "ios-list";
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
       <AppTab.Screen
         name="Accueil"
         component={PageAccueil}
@@ -72,8 +96,8 @@ function newNavigator() {
         name="Tabnavigator"
         component={TabNavigator}
       />
-      <AppStackNewNavigator.Screen name="PlatDetail" component={PlatDetail} />
       <AppStackNewNavigator.Screen name="OrderMenue" component={PlatDetail} />
+      <AppStackNewNavigator.Screen name="Finalize" component={Finalize} />
     </AppStackNewNavigator.Navigator>
   );
 }
